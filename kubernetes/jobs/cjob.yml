@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello will print in ever 1 min
+          restartPolicy: OnFailure

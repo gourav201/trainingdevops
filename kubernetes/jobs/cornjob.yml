@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cjob
+  namespace: jobnamespace
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cjobimage
+            image: busybox
+            command: ["echo", "My name is gourav"]
+          restartPolicy: OnFailure
