@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job1
+  namespace: jobnamespace
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: job1-image
+        image: busybox
+        command: ["echo", "my name is Gourav"]
+      restartPolicy: Never
