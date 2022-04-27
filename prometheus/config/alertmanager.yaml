@@ -1,0 +1,43 @@
+global:
+receivers:
+- name: 'slack-notifications'
+  slack_configs:
+  - api_url: "https://hooks.slack.com/services/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"
+      
+route:
+  receiver: 'slack-notifications'
+  group_by: [alertname, datacenter, app]
+  group_wait: 1s
+  repeat_interval: 2m
+
+# route:
+#   receiver: 'mail'
+#   repeat_interval: 1h
+#   group_by: [ 'alertname' ]
+
+  
+
+
+# receivers:
+# - name: 'mail'
+#   email_configs:
+#     - smarthost: 'smtp.gmail.com:587'
+#       auth_username: 'gouravupadhyay201@gmail.com'
+#       auth_identity: gouravupadhyay201@gmail.com
+#       auth_password: "hrencbylynypjltg"
+#       from: 'gouravupadhyay201@gmail.com'
+#       to: 'gouravupadhyay201@gmail.com'
+#       send_resolved: true
+
+# inhibit_rules:
+#   - source_match:
+#       severity: 'critical'
+# target_match:
+#   severity: 'warning'
+#   equal: ['alertname', 'dev', 'instance']
+  
+
+
+
+
+  
